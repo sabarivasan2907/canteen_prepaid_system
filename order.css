@@ -1,0 +1,52 @@
+/* Full Background Image */
+body {
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Centered Order Box */
+.order-container {
+    background: rgba(0, 0, 0, 0.8); /* Darker transparent box */
+    width: 40%;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Styling for Inputs */
+input {
+    width: 80%;
+    padding: 8px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Fix "Place Order" Button */
+button {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Make "Back to Dashboard" Link Visible */
+.back-link {
+    display: block;
+    margin-top: 10px;
+    color: #f8d210; /* Bright Yellow */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    color: #ffeb3b;
+    text-decoration: underline;
+}

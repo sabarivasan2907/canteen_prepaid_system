@@ -1,0 +1,109 @@
+/* Reset & Background */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #FF512F, #DD2476);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* Left Section */
+.left-section {
+    flex: 1;
+    text-align: left;
+    color: white;
+}
+.left-section h1 {
+    font-size: 38px; /* Increased */
+    font-weight: bold;
+}
+.left-section p {
+    font-size: 18px; /* Increased */
+    margin-bottom: 10px;
+}
+
+/* Order Button */
+.order-btn {
+    background: #FF5733;
+    color: white;
+    border: none;
+    padding: 16px 34px; /* Bigger Button */
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.order-btn:hover {
+    background: #E64A19;
+    transform: scale(1.1);
+}
+
+/* User Details */
+.user-details {
+    margin: 15px 0;
+    font-size: 18px; /* Bigger */
+}
+
+/* Option Buttons */
+.options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.option {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.option:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Right Section (Random Image Sizes) */
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.food-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 450px;
+}
+.food-section img {
+    width: calc(100px + (100 * (random() * 0.7))); /* Random size */
+    height: calc(100px + (100 * (random() * 0.7)));
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s;
+}
+.food-section img:hover {
+    transform: rotate(3deg) scale(1.05);
+}
