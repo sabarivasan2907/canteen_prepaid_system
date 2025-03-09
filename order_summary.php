@@ -1,11 +1,27 @@
 <?php
 session_start();
+include 'db_connect.php'; 
 if (!isset($_SESSION["order_summary"])) {
     header("Location: order.php");
     exit();
 }
 
 $order = $_SESSION["order_summary"];
+$userId = $_SESSION['user_id'];
+
+// Updating new wallet in session
+$_SESSION['wallet_amount'] = $_SESSION['wallet_amount'] - $order['Total'];
+
+// Updating wallet amount in database
+$sql = "UPDATE users SET balance = ? WHERE id = ?";
+$stmt = $conn->prepare($sql);
+
+// Ensure wallet_amount is numeric to prevent SQL injection
+$walletAmount = (float)$_SESSION['wallet_amount']; 
+
+$stmt->bind_param("ds", $walletAmount, $userId); 
+$stmt->execute();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Calculate new balance
         $new_balance = $current_balance + $amount;
 
+        
         // Update balance
         $stmt = $conn->prepare("UPDATE users SET balance = ? WHERE user_id = ?");
         $stmt->bind_param("di", $new_balance, $user_id);
@@ -50,6 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->affected_rows > 0) {
             $conn->commit(); // Commit transaction
+
+            // Update wallet amount in session
+            $_SESSION['wallet_amount'] = $new_balance;
+        
             header("Location: test_deposit.html?success=1&balance=" . $new_balance);
             exit();
         } else {

@@ -12,11 +12,8 @@ if (!isset($_SESSION['user_id'])) {
 // Get logged-in user ID from session
 $user_id = $_SESSION['user_id']; // Now it dynamically gets the correct user ID
 
-// Fetch user balance (modify based on your column names)
-$query = "SELECT balance FROM users WHERE id = $user_id";
-$result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
-$balance = $row['balance'] ?? 0;
+// Fetch user balance from session
+$balance = $_SESSION['wallet_amount'] ?? 0;
 
 // Fetch recent transactions 
 $transactions = mysqli_query($conn, "SELECT * FROM transactions WHERE id = $user_id ORDER BY created_at DESC LIMIT 3");
